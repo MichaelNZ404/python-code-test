@@ -26,6 +26,8 @@ docker-compose up
 * The default Django "It worked!" page should now be available at
   http://localhost:8008/
 
+You can run `manage.py` commands using the `./manapy` wrapper.
+
 ## Tasks
 
 * Update the models so that `Episode`s can have `PhotoReaction`s or
