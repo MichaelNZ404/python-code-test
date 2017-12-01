@@ -7,9 +7,7 @@ services:
     volumes:
       - .:/srv/python-code-test
     ports:
-      - "0:8000"
-    env_file:
-     - ./docker.env
+      - "8008:8000"
     links:
       - postgresql
   postgresql:
