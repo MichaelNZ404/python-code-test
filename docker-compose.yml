@@ -1,0 +1,20 @@
+version: "3"
+services:
+  code-test:
+    build:
+      context: .
+    command: "/usr/bin/gunicorn -w2 -b 0.0.0.0:8000 testsite.wsgi"
+    volumes:
+      - .:/srv/python-code-test
+    ports:
+      - "0:8000"
+    env_file:
+     - ./docker.env
+    links:
+      - postgresql
+  postgresql:
+    image: postgres:9.6
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: dummy  # so load_db_dump creates the db
