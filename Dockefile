@@ -9,5 +9,3 @@ ADD requirements.in /srv/python-code-test/
 RUN pip3 install -r requirements.in
 
 ADD . /srv/python-code-test
-
-WORKDIR /srv/python-code-test
