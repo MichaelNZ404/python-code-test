@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
+DOCKER = os.getenv('USER') != 'ubuntu'
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -79,7 +81,7 @@ WSGI_APPLICATION = 'testsite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
+        'NAME': 'postgres' if DOCKER else '',
         'HOST': 'postgresql',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
