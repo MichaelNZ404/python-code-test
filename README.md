@@ -1,16 +1,14 @@
 # Ostmodern Python Code Test
 
-The goal of this exercise is to test that you know your way around the command
-line and Django tools. Whilst there is some simple HTML to write, you won't be
-expected to style the page.
+The goal of this exercise is to test that you know your way around Django and
+REST APIs. Develop this the same way you would an actual long-term project.
 
-The idea is to do some prototype work on a site that allows users to add their
-comments & reactions to an episode of a television program. They'll be able to
-upload an image, or write a tweet, which will be stored locally in the
-application. Each episode will have a stream of reactions, showing a list of
-items with their details.
+The idea is to build a platform on which your users can buy and sell starships.
+To make this process more transparent, it has been decided to source some
+technical information about the ships on sale from the [Starship
+API](https://swapi.co/documentation#starships).
 
-A Django project has been created and some initial data models have been created.
+A Django project some initial data models have been created already.
 
 ## Getting started
 
@@ -38,14 +36,48 @@ vagrant ssh
 
 ## Tasks
 
-Develop this the same way you would a serious long-term project.
+Your task is to build a JSON-based REST API for your frontend developers to
+consume. You have built a list of user stories with your colleagues, but you get
+to decide how to design the API. Remember that the frontend developers will need
+some documentation of your API to understand how to use it.
 
-* Update the models so that `Episode`s can have `PhotoReaction`s or
-  `TweetReaction`s
-* Add some sample data using the Django admin interface and save it as fixtures
-* Make it possible for an admin to moderate the site by deleting photos/tweets
-  (and un­deleting them) using the Django admin interace
-* Make a page that displays the reactions for a particular episode in
-  chronological order at `/episodes/:id/`
-* The stream should only display items that are not deleted
-* Create a release branch in your repo and send us the link
+* A potential buyer can browse all the ships currently for sale
+* A potential buyer can order ships on sale by either price or time of listing
+* A potential buyer can browse all the models of which there are currently ships
+  for sale
+* For each of those models, a potential buyer can browse all the offers for this
+  model
+* When a user supplies a ship name, a model name and a price, they can put their
+  ship up for sale
+  * Performance characteristics for the ship are gotten from the Starship API
+  * The ship name entered maps to the `model` field on the Starship API
+  * If the model can't be found in the API, the listing should not be accepted
+* When a seller takes their ship off the market, it doesn't appear in any
+  listing
+* When a seller puts their ship back onto the market, it appears again in
+  listings
+* When a ship is put back onto the market it moves up if the listing is ordered
+  by time of listing
+
+After you are done, create a release branch in your repo and send us the link.
+
+---
+
+Possible extra ideas:
+- Crossrefences with other data
+- Image upload
+
+Things we can ask afterwards:
+- Why have you chosen to use (Docker/Vagrant)?
+- Why have you chosen to use (DRF/restless/no framework)?
+- Why have you chose (not) to use the SWAPI Python library?
+- Why have you chosen to layout the API in the way you did?
+
+Checklist:
+- Is there documentation/how is it?
+- Are there tests? Unit? Integration? Have they mocked the SWAPI?
+- Are all user stories satisfied?
+- Is the API RESTful?
+- Do they reuse StarshipModels?
+- Do they avoid unnecessary calls to the SWAPI?
+- Is ordering/filtering generalised?
