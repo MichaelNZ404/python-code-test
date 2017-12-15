@@ -60,24 +60,3 @@ some documentation of your API to understand how to use it.
   by time of listing
 
 After you are done, create a release branch in your repo and send us the link.
-
----
-
-Possible extra ideas:
-- Crossrefences with other data
-- Image upload
-
-Things we can ask afterwards:
-- Why have you chosen to use (Docker/Vagrant)?
-- Why have you chosen to use (DRF/restless/no framework)?
-- Why have you chose (not) to use the SWAPI Python library?
-- Why have you chosen to layout the API in the way you did?
-
-Checklist:
-- Is there documentation/how is it?
-- Are there tests? Unit? Integration? Have they mocked the SWAPI?
-- Are all user stories satisfied?
-- Is the API RESTful?
-- Do they reuse StarshipModels?
-- Do they avoid unnecessary calls to the SWAPI?
-- Is ordering/filtering generalised?
