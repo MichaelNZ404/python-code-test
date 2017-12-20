@@ -1,0 +1,13 @@
+{% if results %}
+    <ul>
+    {% for result in results %}
+      {% if result.text %}
+        <li>{{ result.text }}</li>
+      {% else %}
+        <img src={{ result.image.url }} />
+      {% endif %}
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No reactions exist for this episode</p>
+{% endif %}

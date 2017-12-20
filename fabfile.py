@@ -19,3 +19,7 @@ def make_migrations():
 
 def requirements():
     local('/home/ubuntu/.virtualenvs/code-test/bin/pip install -r requirements.txt ')
+
+def clean_db(fixture_name):
+    run_manage('flush')
+    run_manage('loaddata %s' % fixture_name)
